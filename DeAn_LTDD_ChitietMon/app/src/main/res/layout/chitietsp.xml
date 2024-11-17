@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ExtraText">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="356dp"
+        android:layout_marginTop="804dp"
+        android:text="Xác nhận"
+        android:background="#3DD743"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/myy_view"
+        android:layout_width="150dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="212dp"
+        android:src="@drawable/img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/my1_view"
+        android:layout_width="140dp"
+        android:layout_height="104dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="340dp"
+        android:src="@drawable/img_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/my2_view"
+        android:layout_width="138dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="632dp"
+        android:src="@drawable/img_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/my3_view"
+        android:layout_width="137dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="472dp"
+        android:src="@drawable/img_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="504dp"
+        android:text="Số bàn 99"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myy_view" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="196dp"
+        android:layout_height="64dp"
+        android:text="Món Ăn"
+        android:backgroundTint="#E09F3F"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="86dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="207dp"
+        android:layout_height="64dp"
+        android:text="Nước Uống"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="86dp" />
+
+    tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="696dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

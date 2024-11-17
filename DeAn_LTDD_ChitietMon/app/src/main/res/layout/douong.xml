@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="119dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="248dp"
+        android:layout_marginTop="616dp"
+        android:text="Xác Nhận"
+        android:background="#22A927"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:backgroundTint="#FF9800"
+        android:layout_width="130dp"
+        android:layout_height="59dp"
+        android:text="Đồ Uống"
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="55dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="133dp"
+        android:layout_height="59dp"
+        android:text="Món Ăn"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="55dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bàn số 99"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="616dp" />
+
+    <ImageView
+        android:layout_width="82dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="124dp"
+        android:src="@drawable/img_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <ImageView
+        android:layout_width="88dp"
+        android:layout_height="99dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="232dp"
+        android:src="@drawable/img_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="85dp"
+        android:layout_height="101dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="336dp"
+        android:src="@drawable/img_7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="484dp"
+        android:src="@drawable/img_6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quay lại"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

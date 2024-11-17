@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="467dp"
+        android:layout_height="338dp"
+        android:textSize="23sp"
+        android:text="Món spaghetti cổ điển là một món ăn đa dạng, có thể tùy chỉnh theo sở thích của bạn. Bạn có thể thêm các nguyên liệu khác vào nước sốt như thịt bò bằm, nấm, hoặc ớt chuông để tăng thêm hương vị và giá trị dinh dưỡng. Bạn cũng có thể thử các loại mì khác nhau như linguine hoặc fettuccine để tạo ra một biến tấu mới lạ cho món ăn cổ điển này."
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="312dp" />
+
+    <ImageView
+        android:layout_width="204dp"
+        android:layout_height="153dp"
+        android:src="@drawable/img_2"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="41dp" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="Thêm Món"
+        tools:layout_editor_absoluteX="187dp"
+        tools:layout_editor_absoluteY="690dp" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Spaghetti: Pepper Lunch"
+        android:textColor="#E91E63"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="194dp" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="150.000VND"
+        android:textColor="#2196F3"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="248dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
