@@ -1,6 +1,6 @@
 # Mobile App Showcase
 
-This repository contains a demo of our mobile application, showcasing its key features and design.
+This repository contains a demo of our mobile application, showcasing its key 
 
 ## Screenshots
 
