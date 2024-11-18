@@ -24,11 +24,11 @@ class RecyclerTableAdapter(val context : Context,val items : List<ItemTable>):Re
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val currentItem = items[position]
         holder.textView.text = currentItem.name
-//        if(currentItem.status == 0){
-//            holder.textView.setBackgroundColor(Color.WHITE)
-//        }else{
-//            holder.textView.setBackgroundColor(Color.BLUE)
-//        }
+        if(currentItem.status == 0){
+            holder.textView.setBackgroundResource(R.drawable.shape_empty_table)
+        }else{
+            holder.textView.setBackgroundResource(R.drawable.shape_occupied_table)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
     <TextView
         android:id="@+id/tvTable"
         android:layout_width="105dp"
         android:layout_height="75dp"
-        android:background="@drawable/btn_table"
         android:gravity="center"
-        android:textColor="#9C27B0"
+        android:textColor="#B12525"
         android:text="Ban 1"
+        android:background="@drawable/shape_background_border"
         />
 </LinearLayout>
