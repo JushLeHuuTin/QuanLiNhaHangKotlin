@@ -31,7 +31,7 @@ class ThongKeActivity : AppCompatActivity() {
     //set control
     fun setControl(){
         bottomNav = findViewById(R.id.bottom_nav_view)
-        btnThongKeMonAn = findViewById(R.id.btnDTTM)
+        btnThongKeMonAn = findViewById(R.id.btnSTTMA)
         btnDoanhThu = findViewById(R.id.btnDT)
         btnSoLuongBanDat = findViewById(R.id.btnSLDB)
     }

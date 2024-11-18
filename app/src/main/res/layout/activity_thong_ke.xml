@@ -6,51 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ThongKeActivity"
-    android:background="@color/white"
-    >
-    <Button
-        android:id="@+id/btnSLDB"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="49dp"
-        android:text="Số lượng đạt bàn"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDT" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnSLDB"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/_2" />
-
-    <Button
-        android:id="@+id/btnDTTM"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="50dp"
-        android:text="Doanh thu theo món ăn"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSLDB" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnDTTM"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/_3" />
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/textView9"
@@ -58,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
         android:gravity="center"
-        android:text="Tổng Quan"
+        android:textColor="#333"
+        android:text="Tổng Quang"
         android:textSize="35sp"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:layout_editor_absoluteX="0dp" />
@@ -79,25 +36,75 @@
 
     <Button
         android:id="@+id/btnDT"
-        android:layout_width="303dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="39dp"
+        android:gravity="left"
+        android:padding="20dp"
         android:text="Doanh thu"
         android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        tools:layout_editor_absoluteX="30dp" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="39dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnDT"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDT"
+        app:layout_constraintEnd_toEndOf="@+id/btnDT"
+        app:layout_constraintTop_toTopOf="@+id/btnDT"
         app:srcCompat="@drawable/_1" />
+
+    <Button
+        android:id="@+id/btnSLDB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="39dp"
+        android:gravity="left"
+        android:padding="20dp"
+        android:text="Số lượng đạt bàn"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/btnDT"
+        tools:layout_editor_absoluteX="30dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSLDB"
+        app:layout_constraintEnd_toEndOf="@+id/btnSLDB"
+        app:layout_constraintTop_toTopOf="@+id/btnSLDB"
+        app:layout_constraintVertical_bias="0.444"
+        app:srcCompat="@drawable/_2" />
+
+    <Button
+        android:layout_marginTop="39dp"
+        android:id="@+id/btnSTTMA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:gravity="left"
+        android:padding="20dp"
+        android:text="Doanh thu theo món"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/btnSLDB"
+        tools:layout_editor_absoluteX="28dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSTTMA"
+        app:layout_constraintEnd_toEndOf="@+id/btnSTTMA"
+        app:layout_constraintTop_toTopOf="@+id/btnSTTMA"
+        app:layout_constraintVertical_bias="0.444"
+        app:srcCompat="@drawable/_3" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_view"
         android:layout_width="match_parent"

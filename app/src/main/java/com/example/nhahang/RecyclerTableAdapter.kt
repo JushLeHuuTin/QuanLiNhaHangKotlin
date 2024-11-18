@@ -1,11 +1,13 @@
 package com.example.nhahang
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerTableAdapter(val context : Context,val items : List<ItemTable>):RecyclerView.Adapter<RecyclerTableAdapter.ItemViewHolder>() {
@@ -28,6 +30,19 @@ class RecyclerTableAdapter(val context : Context,val items : List<ItemTable>):Re
             holder.textView.setBackgroundResource(R.drawable.shape_empty_table)
         }else{
             holder.textView.setBackgroundResource(R.drawable.shape_occupied_table)
+        }
+        holder.itemView.setOnClickListener {
+            when(currentItem.status){
+                0->{
+                    Toast.makeText(context,"Bàn trống", Toast.LENGTH_SHORT).show()
+                }
+                1->{
+                    Toast.makeText(context,"Bàn có khách", Toast.LENGTH_SHORT).show()
+                    context.startActivity(Intent(context,GoiMonActivity::class.java))
+
+                }
+
+            }
         }
     }
 

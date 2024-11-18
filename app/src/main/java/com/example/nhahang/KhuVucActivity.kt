@@ -7,6 +7,7 @@ import android.widget.GridLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,7 +16,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class KhuVucActivity : AppCompatActivity() {
     private lateinit var recyclerTable : RecyclerView
-    private lateinit var items : MutableList<ItemTable>
+    private lateinit var tableFloor1 : MutableList<ItemTable>
+    private lateinit var tableFloor2 : MutableList<ItemTable>
     private lateinit var bottomNav : BottomNavigationView
     private lateinit var btnTang1 : Button
     private lateinit var btnTang2 : Button
@@ -30,12 +32,20 @@ class KhuVucActivity : AppCompatActivity() {
 //    set control
     fun setControl(){
         recyclerTable = findViewById(R.id.recyclerTable)
-        items = mutableListOf()
+
+        tableFloor1 = mutableListOf()
         for(i in 1..15){
             if( i % 5 == 0){
-                items.add(ItemTable("Bàn " + i,1))
+                tableFloor1.add(ItemTable("Bàn " + i,1))
             }
-            else items.add(ItemTable("Bàn " + i,0))
+            else tableFloor1.add(ItemTable("Bàn " + i,0))
+        }
+        tableFloor2 = mutableListOf()
+        for(i in 1..8){
+            if( i % 4 == 0){
+                tableFloor2.add(ItemTable("Bàn " + i,1))
+            }
+            else tableFloor2.add(ItemTable("Bàn " + i,0))
         }
         bottomNav = findViewById(R.id.bottom_nav_view)
         bottomNav.selectedItemId = R.id.bottom_nav_location
@@ -46,17 +56,24 @@ class KhuVucActivity : AppCompatActivity() {
     fun getTable(){
         val layOutManager = GridLayoutManager(this,3)
         recyclerTable.layoutManager = layOutManager
-        val adapter = RecyclerTableAdapter(this,items)
+        val adapter = RecyclerTableAdapter(this,tableFloor1)
         recyclerTable.adapter = adapter
     }
     //get event select tang
     fun setEvent(){
         btnTang2.setOnClickListener {
-            btnTang2.setBackgroundResource(R.drawable.shape_occupied_table)
+            btnTang2.backgroundTintList = ContextCompat.getColorStateList(this,R.color.primary_color)
+            btnTang2.setBackgroundResource(R.drawable.shape_inputsearch)
+            val adapter = RecyclerTableAdapter(this,tableFloor2)
+            recyclerTable.adapter = adapter
             btnTang1.setBackgroundResource(R.drawable.btn_select)
+
         }
         btnTang1.setOnClickListener {
-            btnTang1.setBackgroundResource(R.drawable.shape_occupied_table)
+            val adapter = RecyclerTableAdapter(this,tableFloor1)
+            recyclerTable.adapter = adapter
+            btnTang1.setBackgroundResource(R.drawable.shape_inputsearch)
+            btnTang1.backgroundTintList = ContextCompat.getColorStateList(this,R.color.primary_color)
             btnTang2.setBackgroundResource(R.drawable.btn_select)
         }
         bottomNav.setOnNavigationItemSelectedListener { i ->

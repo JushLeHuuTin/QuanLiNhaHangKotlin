@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TienIchActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:paddingTop="40dp">
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -17,13 +18,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/img_bell"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/img_brand"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/ic_bell_foreground" />
 
+        <ImageView
+            android:id="@+id/img_brand"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/brand_108fmk" />
         <Button
             android:id="@+id/btn_setting"
             android:layout_width="35dp"
             android:layout_height="32dp"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="40dp"
             android:background="@drawable/setting"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,11 +50,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="47dp"
             android:text="Tiện ích"
+            android:textColor="#333"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_setting"
             app:layout_constraintStart_toEndOf="@+id/btn_setting"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/btn_setting" />
 
         <TextView
             android:id="@+id/textView4"
@@ -46,6 +64,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="88dp"
             android:text="Name User"
+            android:textColor="#333"
             android:textSize="25dp"
             app:layout_constraintStart_toEndOf="@+id/btnUsername"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -63,6 +82,7 @@
 
         <TextView
             android:id="@+id/textView6"
+            android:textColor="#333"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -100,6 +120,7 @@
             android:layout_marginTop="48dp"
             android:text="Giới Thiệu"
             android:textSize="40dp"
+            android:textColor="#333"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -112,6 +133,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
+            android:textColor="#333"
             android:text="Hotline: 0123456789"
             app:layout_constraintStart_toEndOf="@+id/imageView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -142,6 +164,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="15.5dp"
+            android:textColor="#333"
             android:text="Địa chỉ: 53 Võ Văn Ngân, Trường thọ, Thủ đức"
             app:layout_constraintStart_toEndOf="@+id/imageView9"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -151,6 +174,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="68dp"
+            android:textColor="#333"
             android:text="Đánh Giá"
             android:textSize="30dp"
             android:textStyle="bold"
@@ -209,38 +233,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView10"
             app:srcCompat="@android:drawable/btn_star_big_on" />
 
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="39dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="12dp"
-            app:layout_constraintEnd_toStartOf="@+id/btnAvatar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_bell_foreground" />
 
-        <Button
-            android:id="@+id/btnAvatar"
-            android:layout_width="65dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="16dp"
-            android:background="#00FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageAvatar"
-            android:layout_width="55dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="24dp"
-            app:layout_constraintBottom_toBottomOf="@+id/btnAvatar"
-            app:layout_constraintEnd_toEndOf="@+id/btnAvatar"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/btnAvatar"
-            app:layout_constraintTop_toTopOf="@+id/btnAvatar"
-            app:layout_constraintVertical_bias="0.75"
-            app:srcCompat="@drawable/brand_108fmk" />
 
         <ImageView
             android:id="@+id/imageView5"

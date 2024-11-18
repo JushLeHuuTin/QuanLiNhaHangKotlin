@@ -13,6 +13,7 @@
         android:layout_marginStart="14dp"
         android:layout_marginTop="75dp"
         android:text="Tiện ích"
+        android:textColor="#333"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
