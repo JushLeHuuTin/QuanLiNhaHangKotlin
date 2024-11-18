@@ -78,6 +78,11 @@ class MainActivity : AppCompatActivity() {
                     overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
                     true
                 }
+                R.id.bottom_nav_location->{
+                    startActivity(Intent(this,KhuVucActivity::class.java))
+                    overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                    true
+                }
                 R.id.bottom_nav_extension->{
                     startActivity(Intent(this,TienIchActivity::class.java))
                     overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)

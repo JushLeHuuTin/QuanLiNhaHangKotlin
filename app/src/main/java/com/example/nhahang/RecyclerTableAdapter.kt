@@ -15,20 +15,20 @@ class RecyclerTableAdapter(val context : Context,val items : List<ItemTable>):Re
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RecyclerTableAdapter.ItemViewHolder {
+    ): ItemViewHolder {
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.recycler_table_item,parent,false)
         return ItemViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RecyclerTableAdapter.ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val currentItem = items[position]
         holder.textView.text = currentItem.name
-        if(currentItem.status == 0){
-            holder.textView.setBackgroundColor(Color.WHITE)
-        }else{
-            holder.textView.setBackgroundColor(Color.BLUE)
-        }
+//        if(currentItem.status == 0){
+//            holder.textView.setBackgroundColor(Color.WHITE)
+//        }else{
+//            holder.textView.setBackgroundColor(Color.BLUE)
+//        }
     }
 
     override fun getItemCount(): Int {
