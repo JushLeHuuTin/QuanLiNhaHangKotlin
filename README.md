@@ -21,4 +21,4 @@ This repository contains a demo of our mobile application, showcasing its key
 ## Installation
 1. Clone the repository:
    ```bash
-   https://github.com/lehuutin/QuanLiNhaHangKotlin.git
+   https://github.com/jushlehuutin/QuanLiNhaHangKotlin.git
