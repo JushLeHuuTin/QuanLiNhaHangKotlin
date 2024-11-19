@@ -58,23 +58,23 @@ class KhuVucActivity : AppCompatActivity() {
         recyclerTable.layoutManager = layOutManager
         val adapter = RecyclerTableAdapter(this,tableFloor1)
         recyclerTable.adapter = adapter
+
     }
     //get event select tang
     fun setEvent(){
+        btnTang1.backgroundTintList = ContextCompat.getColorStateList(this,R.color.primary_color)
         btnTang2.setOnClickListener {
             btnTang2.backgroundTintList = ContextCompat.getColorStateList(this,R.color.primary_color)
-            btnTang2.setBackgroundResource(R.drawable.shape_inputsearch)
+            btnTang1.backgroundTintList = ContextCompat.getColorStateList(this,R.color.transparent)
             val adapter = RecyclerTableAdapter(this,tableFloor2)
             recyclerTable.adapter = adapter
-            btnTang1.setBackgroundResource(R.drawable.btn_select)
 
         }
         btnTang1.setOnClickListener {
             val adapter = RecyclerTableAdapter(this,tableFloor1)
             recyclerTable.adapter = adapter
-            btnTang1.setBackgroundResource(R.drawable.shape_inputsearch)
             btnTang1.backgroundTintList = ContextCompat.getColorStateList(this,R.color.primary_color)
-            btnTang2.setBackgroundResource(R.drawable.btn_select)
+            btnTang2.backgroundTintList = ContextCompat.getColorStateList(this,R.color.transparent)
         }
         bottomNav.setOnNavigationItemSelectedListener { i ->
                 when(i.itemId){

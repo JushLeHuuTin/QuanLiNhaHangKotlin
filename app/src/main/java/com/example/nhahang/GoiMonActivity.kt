@@ -1,8 +1,12 @@
 package com.example.nhahang
 
+import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +17,11 @@ import androidx.core.view.WindowInsetsCompat
 class GoiMonActivity : AppCompatActivity() {
     private lateinit var imgMon1 : ImageView
     private lateinit var imgMon2 : ImageView
-
+    private lateinit var tv_TableName : TextView
+    private lateinit var btnMon : Button
+    private lateinit var btnNuoc : Button
+    private lateinit var btnCart : Button
+    private lateinit var lo_DisPlayMon : LinearLayout
     private lateinit var imgMon : ImageView
     private lateinit var tvNameMon : TextView
     private lateinit var tvPriceMon : TextView
@@ -29,6 +37,11 @@ class GoiMonActivity : AppCompatActivity() {
     fun setControl(){
         imgMon1 = findViewById(R.id.img_Mon1)
         imgMon2 = findViewById(R.id.img_Mon2)
+        tv_TableName = findViewById(R.id.tv_TableName)
+        btnNuoc = findViewById(R.id.btnNuoc)
+        btnMon = findViewById(R.id.btnMon)
+        btnCart = findViewById(R.id.btnCart)
+        lo_DisPlayMon = findViewById(R.id.lo_DisPlayMon)
         imgMon = findViewById(R.id.img_Mon)
         tvNameMon = findViewById(R.id.tv_nameMon)
         tvDESMon = findViewById(R.id.tv_desMon)
@@ -36,7 +49,12 @@ class GoiMonActivity : AppCompatActivity() {
     }
     //set event
     fun setEvent(){
+        val tableName = intent.getStringExtra("TableName")
+        tv_TableName.text = tableName
+        btnMon.backgroundTintList = ContextCompat.getColorStateList(this,R.color.primary_color)
         imgMon1.setOnClickListener {
+            val animation = AnimationUtils.loadAnimation(this, R.anim.slide_in)
+            lo_DisPlayMon.startAnimation(animation)
             val btnAddMon : Button = findViewById(R.id.btn_AddMon)
             btnAddMon.setBackgroundResource(R.drawable.shape_inputsearch)
             btnAddMon.backgroundTintList = ContextCompat.getColorStateList(this,R.color.primary_color)
@@ -48,6 +66,8 @@ class GoiMonActivity : AppCompatActivity() {
         }
 
         imgMon2.setOnClickListener {
+            val animation = AnimationUtils.loadAnimation(this, R.anim.slide_in)
+            lo_DisPlayMon.startAnimation(animation)
             val btnAddMon : Button = findViewById(R.id.btn_AddMon)
             btnAddMon.backgroundTintList = ContextCompat.getColorStateList(this,R.color.primary_color)
             btnAddMon.text = "Thêm món"
@@ -56,6 +76,21 @@ class GoiMonActivity : AppCompatActivity() {
             tvNameMon.text = "Spaghetti: Cream Cheese"
             tvPriceMon.text = "129.000 VND"
             tvDESMon.text = "Spaghetti cream cheese is a delicious and creamy pasta dish that is perfect for any occasion. This dish combines the rich and savory flavors of spaghetti with the smooth and tangy taste of cream cheese, creating a mouthwatering and indulgent meal. The cream cheese adds a luxurious and velvety texture to the spaghetti, while also adding a touch of tanginess that perfectly balances the richness of the dish. This pasta dish is easy to prepare and can be customized with various ingredients such as herbs, vegetables, and proteins to suit your taste preferences."
+        }
+
+        btnNuoc.setOnClickListener {
+            btnNuoc.backgroundTintList = ContextCompat.getColorStateList(this,R.color.primary_color)
+            btnMon.backgroundTintList = ContextCompat.getColorStateList(this,R.color.transparent)
+//            btnNuoc.setBackgroundResource(R.drawable.shape_inputsearch)
+//            btnMon.setBackgroundResource(R.drawable.btn_select)
+        }
+        btnMon.setOnClickListener {
+            btnMon.backgroundTintList = ContextCompat.getColorStateList(this,R.color.primary_color)
+            btnNuoc.backgroundTintList = ContextCompat.getColorStateList(this,R.color.transparent)
+
+        }
+        btnCart.setOnClickListener {
+            startActivity(Intent(this,GioHangActivity::class.java))
         }
     }
 }

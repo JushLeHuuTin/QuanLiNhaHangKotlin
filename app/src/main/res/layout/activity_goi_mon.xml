@@ -7,98 +7,150 @@
     android:layout_height="match_parent"
     android:paddingTop="40dp"
     tools:context=".GoiMonActivity">
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="0dp"
-        android:layout_height="59dp"
-        android:layout_marginEnd="10dp"
-        android:text="Nước Uống"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/img_bell"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/img_brand"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/ic_bell_foreground" />
 
     <ImageView
-        android:id="@+id/img_Mon"
-        android:layout_width="190dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="28dp"
+        android:id="@+id/img_brand"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toEndOf="@+id/img_Mon1"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/brand_108fmk" />
 
-    <TextView
-        android:id="@+id/tv_nameMon"
-        android:layout_width="200dp"
+    <LinearLayout
+        android:id="@+id/lo_Nav"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="@+id/img_Mon"
-        app:layout_constraintStart_toStartOf="@+id/img_Mon"
-        app:layout_constraintTop_toBottomOf="@+id/img_Mon" />
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_background_border"
+        android:paddingVertical="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/img_brand"
+        tools:layout_editor_absoluteX="20dp">
 
-    <TextView
-        android:id="@+id/tv_priceMon"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="30dp"
-        android:textColor="#DE8F7F"
-        app:layout_constraintEnd_toEndOf="@+id/tv_nameMon"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_nameMon"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nameMon" />
+        <Button
+            android:id="@+id/btnMon"
+            android:layout_width="0dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:text="Món Ăn"
+            android:textColor="#333" />
 
-    <ScrollView
-        android:id="@+id/sc_DESMon"
+        <!--            android:background="@drawable/btn_select"-->
+        <Button
+            android:id="@+id/btnNuoc"
+            android:layout_width="0dp"
+            android:layout_height="59dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
+            android:text="Nước Uống"
+            android:textColor="#333"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lo_DisPlayMon"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_priceMon"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_priceMon"
-        app:layout_constraintTop_toBottomOf="@+id/tv_priceMon">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_Mon2"
+        app:layout_constraintTop_toBottomOf="@+id/lo_Nav">
+
+        <ImageView
+            android:id="@+id/img_Mon"
+            android:layout_width="190dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.56"
+            app:layout_constraintStart_toEndOf="@+id/img_Mon1"
+            app:layout_constraintTop_toBottomOf="@+id/lo_Nav" />
 
         <TextView
-            android:id="@+id/tv_desMon"
+            android:id="@+id/tv_nameMon"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-             />
-    </ScrollView>
+            android:layout_marginTop="16dp"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="@+id/img_Mon"
+            app:layout_constraintStart_toStartOf="@+id/img_Mon"
+            app:layout_constraintTop_toBottomOf="@+id/img_Mon" />
 
-    <Button
-        android:id="@+id/btn_AddMon"
-        android:background="@android:color/transparent"
-        android:textColor="#333"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/sc_DESMon"
-        app:layout_constraintStart_toStartOf="@+id/sc_DESMon"
-        app:layout_constraintTop_toBottomOf="@+id/sc_DESMon" />
+        <TextView
+            android:id="@+id/tv_priceMon"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="#DE8F7F"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_nameMon"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_nameMon"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nameMon" />
+
+        <ScrollView
+            android:id="@+id/sc_DESMon"
+            android:layout_width="wrap_content"
+            android:layout_height="220dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_priceMon"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_priceMon"
+            app:layout_constraintTop_toBottomOf="@+id/tv_priceMon">
+
+            <TextView
+                android:id="@+id/tv_desMon"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" />
+        </ScrollView>
+        <Button
+            android:id="@+id/btn_AddMon"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textColor="#333"
+            app:layout_constraintEnd_toEndOf="@+id/lo_DisPlayMon"
+            app:layout_constraintTop_toBottomOf="@+id/lo_DisPlayMon" />
+    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/img_Mon1"
-        android:layout_width="139dp"
-        android:layout_height="0dp"
+        android:layout_width="140dp"
+        android:layout_height="120dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="29dp"
         android:src="@drawable/img"
-        app:layout_constraintBottom_toTopOf="@+id/img_Mon2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/lo_Nav" />
 
     <ImageView
         android:id="@+id/my2_view"
-        android:layout_width="138dp"
-        android:layout_height="111dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="140dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="120dp"
         android:src="@drawable/img_3"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my3_view" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_TableName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -110,43 +162,30 @@
 
     <ImageView
         android:id="@+id/my3_view"
-        android:layout_width="137dp"
-        android:layout_height="121dp"
-        android:layout_marginTop="132dp"
-        android:layout_marginBottom="134dp"
+        android:layout_width="140dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/img_2"
-        app:layout_constraintBottom_toBottomOf="@+id/my2_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/img_Mon2" />
+        app:layout_constraintTop_toBottomOf="@+id/img_Mon2" />
 
     <ImageView
         android:id="@+id/img_Mon2"
         android:layout_width="140dp"
-        android:layout_height="104dp"
-        android:layout_marginTop="240dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/img_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/img_Mon1" />
+
+
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="0dp"
-        android:layout_height="59dp"
-        android:backgroundTint="#E09F3F"
-        android:layout_marginStart="10dp"
-        android:text="Món Ăn"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button3"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="33dp"
-
-        android:layout_marginBottom="39dp"
-        android:text="Xác nhận"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_cart_foreground"
         android:textColor="#333"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
