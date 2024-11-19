@@ -37,6 +37,7 @@ class GoiMonActivity : AppCompatActivity() {
        setControll()
         setEventt()
     }
+
     //set controll
     fun setControll(){
         lv = findViewById(R.id.lv_GoiMon)
