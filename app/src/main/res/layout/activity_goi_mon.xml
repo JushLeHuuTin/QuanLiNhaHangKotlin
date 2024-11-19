@@ -69,13 +69,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_Mon2"
+        app:layout_constraintStart_toEndOf="@+id/lv_GoiMon"
         app:layout_constraintTop_toBottomOf="@+id/lo_Nav">
 
         <ImageView
             android:id="@+id/img_Mon"
             android:layout_width="190dp"
-            android:layout_height="100dp"
+            android:layout_height="130dp"
             android:layout_marginTop="28dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.56"
@@ -124,16 +124,19 @@
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
+            android:backgroundTint="@color/transparent"
             android:textColor="#333"
             app:layout_constraintEnd_toEndOf="@+id/lo_DisPlayMon"
             app:layout_constraintTop_toBottomOf="@+id/lo_DisPlayMon" />
+
     </LinearLayout>
 
     <ListView
         android:id="@+id/lv_GoiMon"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="150dp"
+        android:divider="@android:color/transparent"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@+id/lo_Nav"
         app:layout_constraintBottom_toTopOf="@+id/tv_TableName"
@@ -164,7 +167,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="39dp"
-        android:text="Số bàn 99"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
