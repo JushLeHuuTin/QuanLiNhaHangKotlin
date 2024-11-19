@@ -7,6 +7,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.ListView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,13 +27,32 @@ class GoiMonActivity : AppCompatActivity() {
     private lateinit var tvNameMon : TextView
     private lateinit var tvPriceMon : TextView
     private lateinit var tvDESMon : TextView
+    //list view
+    private lateinit var lv : ListView
+    private lateinit var items : MutableList<Int>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_goi_mon)
-       setControl()
-        setEvent()
+       setControll()
+        setEventt()
     }
+    //set controll
+    fun setControll(){
+        lv = findViewById(R.id.lv_GoiMon)
+        items = mutableListOf()
+    }
+    //set eventt
+    fun setEventt(){
+        items.add(R.drawable.img)
+        items.add(R.drawable.img_1)
+        items.add(R.drawable.img_2)
+        items.add(R.drawable.img_4)
+        items.add(R.drawable.img_3)
+        val adapter = ListViewMonAdapter(this,items)
+        lv.adapter = adapter
+    }
+
     //set control
     fun setControl(){
         imgMon1 = findViewById(R.id.img_Mon1)

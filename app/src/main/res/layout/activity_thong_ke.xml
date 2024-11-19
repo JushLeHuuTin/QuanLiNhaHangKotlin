@@ -15,7 +15,7 @@
         android:layout_marginTop="13dp"
         android:gravity="center"
         android:textColor="#333"
-        android:text="Tổng Quang"
+        android:text="Tổng Quan"
         android:textSize="35sp"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:layout_editor_absoluteX="0dp" />
