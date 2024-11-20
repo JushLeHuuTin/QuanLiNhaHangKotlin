@@ -7,8 +7,6 @@ import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class QuanLiActivity : AppCompatActivity() {
@@ -74,7 +72,7 @@ class QuanLiActivity : AppCompatActivity() {
             btnQuanLi.backgroundTintList = ContextCompat.getColorStateList(this,R.color.transparent)
         }
         lo_QLBep.setOnClickListener{
-            startActivity(Intent(this,MenuMonAnActivity::class.java))
+            startActivity(Intent(this,QuanLiMonAcitivity::class.java))
         }
     }
 
