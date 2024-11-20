@@ -12,16 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NhaHang"
         tools:targetApi="31">
+
+        <activity
+            android:name=".BillActivity"
+            android:exported="false" />
+        <activity
+            android:name=".XacNhanThemMonActivity"
+            android:exported="false" />
         <activity
             android:name=".QRThanhToanActivity"
             android:exported="false" />
         <activity
             android:name=".GioHangActivity"
             android:exported="false" />
-        <activity
-            android:name=".KhuVucTang2Activity"
-            android:exported="false"
-            android:theme="@style/Theme.NhaHang" />
+
         <activity
             android:name=".GoiMonActivity"
             android:exported="false"
@@ -32,9 +36,7 @@
         <activity
             android:name=".KhuVucActivity"
             android:exported="false" />
-        <activity
-            android:name=".DanhSachSanPhamActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ThongKeMonAnActivity"
             android:exported="false" />
@@ -52,6 +54,15 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".QuanLiActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

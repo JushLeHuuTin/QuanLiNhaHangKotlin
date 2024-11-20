@@ -1,19 +1,13 @@
 package com.example.nhahang
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class GoiMonActivity : AppCompatActivity() {
 //    private lateinit var imgMon1 : ImageView
@@ -65,7 +59,7 @@ class GoiMonActivity : AppCompatActivity() {
 
         tv_TableName.text = intent.getStringExtra("TableName")
         btnCart.setOnClickListener {
-            val intent = Intent(this,GioHangActivity::class.java)
+            val intent = Intent(this,XacNhanThemMonActivity::class.java)
             intent.putExtra("TableName",tv_TableName.text)
             startActivity(intent)
         }

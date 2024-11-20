@@ -66,6 +66,11 @@ class ThongKeActivity : AppCompatActivity() {
                     overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
                     true
                 }
+                R.id.bottom_nav_work->{
+                    startActivity(Intent(this,QuanLiActivity::class.java))
+                    overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                    true
+                }
                 else ->false
             }
         }

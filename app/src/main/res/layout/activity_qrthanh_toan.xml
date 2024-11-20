@@ -9,8 +9,8 @@
     tools:context=".QRThanhToanActivity">
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="43"
-        android:layout_height="43"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
         app:srcCompat="@android:drawable/ic_menu_revert"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
@@ -46,7 +46,7 @@
         />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSubmit"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
