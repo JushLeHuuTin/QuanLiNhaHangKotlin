@@ -22,7 +22,8 @@ class MenuMonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_mon)
-
+        setControll()
+        setEventt()
     }
     fun setControll(){
         lv = findViewById(R.id.lv_GoiMon)

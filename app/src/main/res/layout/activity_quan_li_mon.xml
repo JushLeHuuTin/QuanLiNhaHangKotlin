@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="40dp">
+
     <ImageView
         android:id="@+id/img_bell"
         android:layout_width="20dp"
@@ -238,7 +239,7 @@
         app:layout_constraintStart_toStartOf="@+id/button11" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btnThemMon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"
@@ -258,5 +259,15 @@
         android:layout_marginEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+<!--    <fragment-->
+<!--        android:id="@+id/f_ThemMon"-->
+<!--        android:name="com.example.nhahang.ThemMonFramgent"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+<!--    </fragment>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

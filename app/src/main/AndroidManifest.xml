@@ -17,6 +17,12 @@
             android:name=".BillActivity"
             android:exported="false" />
         <activity
+            android:name=".MenuMonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuanLiMonActivity"
+            android:exported="false" />
+        <activity
             android:name=".XacNhanThemMonActivity"
             android:exported="false" />
         <activity
@@ -30,9 +36,7 @@
             android:name=".GoiMonActivity"
             android:exported="false"
             android:theme="@style/Theme.NhaHang" />
-        <activity
-            android:name=".QuanLiMonAcitivity"
-            android:exported="false" />
+
         <activity
             android:name=".KhuVucActivity"
             android:exported="false" />

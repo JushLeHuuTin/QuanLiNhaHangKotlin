@@ -268,7 +268,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:srcCompat="@drawable/ic_subtract_foreground" />
+        app:srcCompat="@drawable/ic_add_foreground" />
 
     <TextView
         android:id="@+id/textView5"

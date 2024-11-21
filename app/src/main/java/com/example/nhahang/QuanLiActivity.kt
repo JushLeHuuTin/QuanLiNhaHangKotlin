@@ -72,7 +72,7 @@ class QuanLiActivity : AppCompatActivity() {
             btnQuanLi.backgroundTintList = ContextCompat.getColorStateList(this,R.color.transparent)
         }
         lo_QLBep.setOnClickListener{
-            startActivity(Intent(this,QuanLiMonAcitivity::class.java))
+            startActivity(Intent(this,MenuMonActivity::class.java))
         }
     }
 

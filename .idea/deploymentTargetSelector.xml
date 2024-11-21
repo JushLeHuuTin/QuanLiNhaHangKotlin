@@ -5,6 +5,18 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+<<<<<<< HEAD
+=======
+      <SelectionState runConfigName="MainActivity">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="QuanLiActivity">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="MenuMonActivity">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+>>>>>>> 6915aeb5fbba7b322aa26bfa5b6a08911272f813
     </selectionStates>
   </component>
 </project>
