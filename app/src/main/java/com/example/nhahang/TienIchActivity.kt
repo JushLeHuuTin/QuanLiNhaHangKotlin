@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.Calendar
 
 class TienIchActivity : AppCompatActivity() {
     private lateinit var btnCheckOutInt : Button
@@ -16,18 +17,25 @@ class TienIchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_tien_ich)
-
         btnCheckOutInt = findViewById(R.id.btnCheck)
+        val calendar: Calendar = Calendar.getInstance()
+        val hour = calendar[Calendar.HOUR_OF_DAY]
+        val minute = calendar[Calendar.MINUTE]
+        val day = calendar[Calendar.DAY_OF_MONTH]
+        val month = calendar[Calendar.MONTH] + 1
+        val year = calendar[Calendar.YEAR]
+        val timeString = String.format("%02d:%02d %02d/%02d/%04d", hour, minute, day, month, year)
         var check = 0
-        btnCheckOutInt.setOnClickListener {
-            if(check == 0){
-                btnCheckOutInt.setText("Đã CheckIn")
-                check  = 1
-            }else{
-                btnCheckOutInt.setText("Đã CheckOut")
+        btnCheckOutInt.setOnClickListener{
+            if(check == 0) {
+                btnCheckOutInt.setText("Đã check In lúc: " + timeString)
+                check = 1
+            } else {
+                btnCheckOutInt.setText("Đã check Out lúc: " + timeString)
                 check = 0
             }
         }
+
 
         setEvent()
     }

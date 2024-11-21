@@ -1,7 +1,5 @@
 # Restaurant Management App
 
-![Restaurant Management App](https://via.placeholder.com/800x300?text=Restaurant+Management+App)
-
 ## 📱 Giới thiệu
 
 **Restaurant Management App** là một ứng dụng di động được phát triển trên Android Studio, giúp quản lý hoạt động trong nhà hàng một cách hiệu quả và tiện lợi. Ứng dụng hỗ trợ quản lý đặt bàn, thực đơn, hóa đơn, và nhân viên, cung cấp giao diện thân thiện với người dùng và trải nghiệm liền mạch.
@@ -29,4 +27,4 @@
 
 1. Clone repository này về máy:
    ```bash
-   git clone https://github.com/your-username/restaurant-management-app.git
+   git clone https://github.com/JushLeHuuTin/QuanLiNhaHangKotlin.git
