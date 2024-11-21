@@ -58,7 +58,7 @@ class MenuMonActivity : AppCompatActivity() {
             btnMon.backgroundTintList = ContextCompat.getColorStateList(this,R.color.transparent)
         }
         btnQuanliMon.setOnClickListener {
-            startActivity(Intent(this,QuanLiMonActivity::class.java))
+            startActivity(Intent(this,MenuMonActivity::class.java))
         }
     }
 
