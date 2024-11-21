@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 class ThietLapTaiKhoanActivity : AppCompatActivity() {
     private lateinit var btnLogOut : Button
     private lateinit var btnChangePass : Button
+    private lateinit var btnQuenPass : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,11 +22,15 @@ class ThietLapTaiKhoanActivity : AppCompatActivity() {
     fun setControlAndEvent(){
         btnLogOut = findViewById(R.id.btnDangXuat)
         btnChangePass = findViewById(R.id.btnDoiMatKhau)
+        btnQuenPass = findViewById(R.id.btnQuenMatKhau)
         btnLogOut.setOnClickListener {
             startActivity(Intent(this,LoginActivity::class.java))
         }
         btnChangePass.setOnClickListener {
             startActivity(Intent(this,DoiMatKhauActiviy::class.java))
+        }
+        btnQuenPass.setOnClickListener {
+            startActivity(Intent(this,QuenMatKhauActivity::class.java))
         }
 
     }

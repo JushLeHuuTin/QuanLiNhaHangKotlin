@@ -245,6 +245,28 @@
             app:layout_constraintTop_toTopOf="@+id/btnUsername"
             app:srcCompat="@drawable/avt" />
 
+        <Button
+            android:id="@+id/btnTienIch2"
+            android:layout_width="88dp"
+            android:layout_height="87dp"
+            android:layout_marginTop="76dp"
+            android:background="#00000000"
+            app:layout_constraintEnd_toStartOf="@+id/textView4"
+            app:layout_constraintHorizontal_bias="0.733"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_setting" />
+
+        <Button
+            android:id="@+id/btnTienIch3"
+            android:layout_width="51dp"
+            android:layout_height="55dp"
+            android:background="#00000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.962"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            tools:layout_editor_absoluteY="-15dp"
+            tools:ignore="MissingConstraints" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

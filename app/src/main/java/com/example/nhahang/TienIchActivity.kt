@@ -69,8 +69,16 @@ class TienIchActivity : AppCompatActivity() {
               else -> false
             }
         }
+        val btnSrtingAccount1 : Button = findViewById(R.id.btnTienIch2)
+        val btnSrtingAccount2 : Button = findViewById(R.id.btnTienIch3)
         val btnSetting : Button = findViewById(R.id.btn_setting)
         btnSetting.setOnClickListener {
+            startActivity(Intent(this,ThietLapTaiKhoanActivity::class.java))
+        }
+        btnSrtingAccount1.setOnClickListener {
+            startActivity(Intent(this,ThietLapTaiKhoanActivity::class.java))
+        }
+        btnSrtingAccount2.setOnClickListener {
             startActivity(Intent(this,ThietLapTaiKhoanActivity::class.java))
         }
     }
