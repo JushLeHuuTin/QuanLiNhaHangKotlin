@@ -13,6 +13,7 @@ class GioHangActivity : AppCompatActivity() {
     private lateinit var btnXacNhan : Button
     private lateinit var btnThemMon : Button
     private lateinit var tvTableName : TextView
+    private lateinit var btnQuayLai : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,6 +26,7 @@ class GioHangActivity : AppCompatActivity() {
         tvTableName = findViewById(R.id.tv_TableName)
         btnXacNhan = findViewById(R.id.btnThanhToan)
         btnThemMon = findViewById(R.id.btnThemMon)
+        btnQuayLai = findViewById(R.id.btnQuayLai_GioHang)
     }
     //set event
     fun setEvent(){
@@ -36,6 +38,9 @@ class GioHangActivity : AppCompatActivity() {
             val intent = Intent(this,GoiMonActivity::class.java)
             intent.putExtra("TableName",tvTableName.text)
             startActivity(intent)
+        }
+        btnQuayLai.setOnClickListener {
+            finish()
         }
     }
 }
