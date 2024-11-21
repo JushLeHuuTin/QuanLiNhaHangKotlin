@@ -1,6 +1,7 @@
 package com.example.nhahang
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,6 +12,9 @@ class SoLuongBanDatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_so_luong_ban_dat)
-
+        val btnQuayLai : Button = findViewById(R.id.btnQuayLai2)
+        btnQuayLai.setOnClickListener{
+            finish()
+        }
     }
 }
