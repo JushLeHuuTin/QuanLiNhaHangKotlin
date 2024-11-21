@@ -35,6 +35,9 @@ class RecyclerTableAdapter(val context : Context,val items : List<ItemTable>):Re
             when(currentItem.status){
                 0->{
                     Toast.makeText(context,"Bàn trống", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(context,GoiMonActivity::class.java)
+                    intent.putExtra("TableName",currentItem.name)
+                    context.startActivity(intent)
                 }
                 1->{
                     Toast.makeText(context,"Bàn có khách", Toast.LENGTH_SHORT).show()
