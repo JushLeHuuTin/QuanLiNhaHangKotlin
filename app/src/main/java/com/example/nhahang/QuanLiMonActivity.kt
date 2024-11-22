@@ -39,16 +39,19 @@ class QuanLiMonActivity : AppCompatActivity() {
             btnMon.backgroundTintList = ContextCompat.getColorStateList(this,R.color.transparent)
         }
         btnThemMon.setOnClickListener {
-            val fmng  = ThemMonFramgent()
-            fmng.show(supportFragmentManager,"add form dia log")
+            val fang  = ThemMonFramgent()
+
+            fang.show(supportFragmentManager,"add form dia log")
         }
         btnMon1.setOnClickListener {
-            val fmng  = ChiTietMonFramgent()
-            fmng.show(supportFragmentManager,"add form dia log")
+            val fang  = ChiTietMonFramgent.newInstance(R.drawable.img)
+
+            fang.show(supportFragmentManager,"add form dia log")
         }
         btnMon2.setOnClickListener {
-            val fmng  = ChiTietMonFramgent()
-            fmng.show(supportFragmentManager,"add form dia log")
+            val fang  = ChiTietMonFramgent.newInstance(R.drawable.img_1)
+
+            fang.show(supportFragmentManager,"add form dia log")
         }
     }
 }

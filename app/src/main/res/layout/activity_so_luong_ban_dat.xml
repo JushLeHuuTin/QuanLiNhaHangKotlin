@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".SoLuongBanDatActivity"
     android:background="@color/white"
+    android:paddingTop="40dp"
     >
 
     <TextView
@@ -14,18 +15,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="40dp"
-        android:textColor="@color/black"
         android:text="Quay lại"
+        android:textColor="@color/black"
         android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnQLDB"
         app:layout_constraintStart_toEndOf="@+id/btnQLDB"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/btnQLDB" />
 
     <ImageButton
         android:id="@+id/btnQLDB"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="36dp"
         android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -108,7 +108,6 @@
         android:id="@+id/btnQuayLai2"
         android:layout_width="176dp"
         android:layout_height="50dp"
-        android:layout_marginTop="36dp"
         android:background="#00000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

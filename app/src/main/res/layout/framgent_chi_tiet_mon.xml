@@ -105,9 +105,9 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/imgMon"
                 android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:background="@drawable/img" />
+                android:layout_height="170dp"/>
 
 <!--            <LinearLayout-->
 <!--                android:layout_width="match_parent"-->

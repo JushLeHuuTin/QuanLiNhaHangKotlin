@@ -27,7 +27,7 @@
         android:layout_marginTop="40dp"
         android:textColor="#333"
         android:gravity="center"
-        android:text="Doanh thu theo mon ăn"
+        android:text="Doanh thu theo món ăn"
         android:textSize="35sp"
         app:layout_constraintTop_toBottomOf="@+id/imageView33"
         tools:layout_editor_absoluteX="144dp" />
@@ -85,18 +85,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
         android:text="Quay lại"
         android:textColor="#333"
         android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnQLDTMA"
         app:layout_constraintStart_toEndOf="@+id/btnQLDTMA"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/btnQLDTMA" />
 
     <ImageButton
         android:id="@+id/btnQLDTMA"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginTop="24dp"
         android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -106,7 +105,6 @@
         android:id="@+id/btnQuayLai3"
         android:layout_width="151dp"
         android:layout_height="45dp"
-        android:layout_marginTop="19dp"
         android:background="#00000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
