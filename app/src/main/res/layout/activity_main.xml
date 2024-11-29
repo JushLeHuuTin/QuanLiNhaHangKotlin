@@ -30,11 +30,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/brand_108fmk" />
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpBanner"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_brand"
+        android:layout_marginVertical="10dp"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reyclerView"
         android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/vpBanner"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/img_brand"
         tools:layout_editor_absoluteX="31dp" />
 
     <LinearLayout
@@ -65,16 +72,38 @@
             android:inputType="text"/>
     </LinearLayout>
 
-    <ListView
-        android:scrollbars="none"
-        android:layout_marginHorizontal="40dp"
-        android:id="@+id/listView"
+<!--    <ListView-->
+<!--        android:scrollbars="none"-->
+<!--        android:layout_marginHorizontal="40dp"-->
+<!--        android:id="@+id/listView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginVertical="20dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_view"-->
+<!--        android:divider="@android:color/transparent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/lo_search"/>-->
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginStart="10dp"
+        android:text="Top sản phẩm bán chạy:"
+        android:textColor="#333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lo_search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerTopProducts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginVertical="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_view"
         android:divider="@android:color/transparent"
-        app:layout_constraintTop_toBottomOf="@+id/lo_search"/>
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_view"
+        app:layout_constraintTop_toBottomOf="@+id/textView30"
+        tools:layout_editor_absoluteX="40dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_view"

@@ -36,6 +36,9 @@ class DemoFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_demo, container, false)
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+    }
 
     companion object {
         /**
