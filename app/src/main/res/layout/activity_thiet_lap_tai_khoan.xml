@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThietLapTaiKhoanActivity">
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="75dp"
+        android:text="Tiện ích"
+        android:textColor="#333"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/setting" />
+
+    <Button
+        android:id="@+id/btnDoiMatKhau"
+        android:layout_width="341dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="44dp"
+        android:paddingLeft="120dp"
+        android:text="Đổi mật khẩu"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="81dp"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDoiMatKhau"
+        app:layout_constraintEnd_toEndOf="@+id/btnDoiMatKhau"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/btnDoiMatKhau"
+        app:layout_constraintTop_toTopOf="@+id/btnDoiMatKhau"
+        app:layout_constraintVertical_bias="0.44"
+        app:srcCompat="@drawable/password" />
+
+
+    <Button
+        android:id="@+id/btnQuenMatKhau"
+        android:layout_width="341dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="48dp"
+        android:paddingLeft="110dp"
+        android:text="Quên mật khẩu"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDoiMatKhau" />
+
+    <Button
+        android:id="@+id/btnDangXuat"
+        android:layout_width="341dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="48dp"
+        android:paddingLeft="110dp"
+        android:text="Đăng xuất"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnQuenMatKhau" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="76dp"
+        android:layout_height="62dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnQuenMatKhau"
+        app:layout_constraintEnd_toEndOf="@+id/btnQuenMatKhau"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/btnQuenMatKhau"
+        app:layout_constraintTop_toTopOf="@+id/btnQuenMatKhau"
+        app:layout_constraintVertical_bias="0.509"
+        app:srcCompat="@drawable/forgotpassword" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="63dp"
+        android:layout_height="73dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDangXuat"
+        app:layout_constraintEnd_toEndOf="@+id/btnDangXuat"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/btnDangXuat"
+        app:layout_constraintTop_toTopOf="@+id/btnDangXuat"
+        app:layout_constraintVertical_bias="0.619"
+        app:srcCompat="@drawable/logout" />
+</androidx.constraintlayout.widget.ConstraintLayout>
