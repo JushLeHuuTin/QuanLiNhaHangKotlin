@@ -2,10 +2,14 @@ package com.example.nhahang
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.Toast
 import android.widget.ListView
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,23 +23,29 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView : RecyclerView
     private lateinit var recyclerTopProducts : RecyclerView
     private lateinit var bottomNav : BottomNavigationView
+    private lateinit var edtTimKiem : EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        setControl()
         doDuLieuVaoViewPage()
 
         //goi ham load list recycler view
         doDuLieuVaoRecyler()
 
         //goi ham load list view
-        doDuLieuVaoListView()
+        doDuLieuVaoRecylerView()
 
 
 
         //goi ham setevent bottom nav
         setEventNav()
+    }
+    //set control
+    fun setControl(){
+        edtTimKiem = findViewById(R.id.edtTimKiem)
     }
     //do du lieu banner vao view page 2
     fun doDuLieuVaoViewPage(){
@@ -66,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 //        //khai bao adapter
 //    }
 
-    fun doDuLieuVaoListView(){
+    fun doDuLieuVaoRecylerView(){
         recyclerTopProducts = findViewById(R.id.recyclerTopProducts)
         val items  : MutableList<RecyclerTopProductsItem> = mutableListOf()
         items.add(RecyclerTopProductsItem("Tôm sốt thái",129.000,R.drawable.img_top_product1))
@@ -75,8 +85,19 @@ class MainActivity : AppCompatActivity() {
         items.add(RecyclerTopProductsItem("Hàu nướng phô mai",69.000,R.drawable.img_top_product4))
         //khai bao adapter
         val adapter = RecyclerTopProductsAdapter(this,items)
+
         recyclerTopProducts.layoutManager = GridLayoutManager(this,2)
         recyclerTopProducts.adapter = adapter
+        edtTimKiem.addTextChangedListener {
+            val searchText = it?.toString() ?: ""
+            // Lọc danh sách theo nội dung tìm kiếm
+            val filteredList = items.filter { item ->
+                item.name.contains(searchText, ignoreCase = true)
+            }
+             //Cập nhật danh sách trong adapter
+            adapter.updateData(filteredList)
+        }
+
     }
 
     //thuc hien event
@@ -116,6 +137,7 @@ class MainActivity : AppCompatActivity() {
                 }else -> false
             }
         }
+
     }
 
 }

@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerTopProductsAdapter(val context: Context, val items : List<RecyclerTopProductsItem>) : RecyclerView.Adapter<RecyclerTopProductsAdapter.ItemVewHolder>(){
+class RecyclerTopProductsAdapter(val context: Context, var items : List<RecyclerTopProductsItem>) : RecyclerView.Adapter<RecyclerTopProductsAdapter.ItemVewHolder>(){
     class ItemVewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val imgProduct : ImageView = itemView.findViewById(R.id.imgProduct)
         val tvProductName : TextView = itemView.findViewById(R.id.tvProductName)
@@ -33,5 +33,9 @@ class RecyclerTopProductsAdapter(val context: Context, val items : List<Recycler
 
     override fun getItemCount(): Int {
         return items.size
+    }
+    fun updateData(newItems: List<RecyclerTopProductsItem>) {
+        this.items = newItems
+        notifyDataSetChanged()
     }
 }
