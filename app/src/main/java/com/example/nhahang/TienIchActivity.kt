@@ -2,7 +2,9 @@ package com.example.nhahang
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,12 +14,16 @@ import java.util.Calendar
 
 class TienIchActivity : AppCompatActivity() {
     private lateinit var btnCheckOutInt : Button
+    private lateinit var tvTen :TextView
+    private lateinit var tvChucVu :TextView
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_tien_ich)
         btnCheckOutInt = findViewById(R.id.btnCheck)
+        tvTen = findViewById(R.id.tvTen)
+        tvChucVu = findViewById(R.id.tvChucVu)
         val calendar: Calendar = Calendar.getInstance()
         val hour = calendar[Calendar.HOUR_OF_DAY]
         val minute = calendar[Calendar.MINUTE]
@@ -35,8 +41,14 @@ class TienIchActivity : AppCompatActivity() {
                 check = 0
             }
         }
+        if(taikhoan.quyen == "khachhang") {
+            btnCheckOutInt.visibility = View.INVISIBLE  // Ẩn button
+        } else {
+            btnCheckOutInt.visibility = View.VISIBLE
+        }
 
-
+        tvTen.setText(taikhoan.ten)
+        tvChucVu.setText(taikhoan.chucVu)
         setEvent()
     }
 

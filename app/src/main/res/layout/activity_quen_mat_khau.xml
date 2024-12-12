@@ -29,33 +29,33 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/edtSDT"
         android:layout_width="348dp"
         android:layout_height="46dp"
         android:layout_marginTop="52dp"
         android:ems="10"
-        android:hint="Email:"
-        android:inputType="textVisiblePassword"
+        android:inputType="number"
+        android:hint="Số điện thoại"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/edtMatKhauMoi"
         android:layout_width="348dp"
         android:layout_height="46dp"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="Mã OTP:"
+        android:hint="Nhận mật khẩu mới"
         android:inputType="textVisiblePassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/edtSDT" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/edtNhapLaiMatKhauMoi"
         android:layout_width="348dp"
         android:layout_height="46dp"
         android:layout_marginTop="40dp"
@@ -65,43 +65,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
-
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="348dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Nhập lại mật khẩu mới"
-        android:inputType="textVisiblePassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/edtMatKhauMoi" />
 
     <Button
         android:id="@+id/btnXacNhanDoiMatKhau"
         android:layout_width="345dp"
         android:layout_height="59dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="192dp"
         android:text="Xác nhận đổi mật khẩu"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnXacNhanDoiMatKhau2" />
-
-    <Button
-        android:id="@+id/btnXacNhanDoiMatKhau2"
-        android:layout_width="200dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="60dp"
-        android:text="Gửi mã OTP"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/edtNhapLaiMatKhauMoi" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

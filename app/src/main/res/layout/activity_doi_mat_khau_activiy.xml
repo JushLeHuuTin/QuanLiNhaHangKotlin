@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/edtMatKhauCu"
         android:layout_width="348dp"
         android:layout_height="46dp"
         android:layout_marginTop="52dp"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/edtMatKhauMoi"
         android:layout_width="348dp"
         android:layout_height="46dp"
         android:layout_marginTop="40dp"
@@ -52,10 +52,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/edtMatKhauCu" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/edtNhapLaiMatKhauMoi"
         android:layout_width="348dp"
         android:layout_height="46dp"
         android:layout_marginTop="40dp"
@@ -65,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/edtMatKhauMoi" />
 
     <Button
         android:id="@+id/btnXacNhanDoiMatKhau"
@@ -76,5 +76,5 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/edtNhapLaiMatKhauMoi" />
 </androidx.constraintlayout.widget.ConstraintLayout>

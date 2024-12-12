@@ -2,6 +2,7 @@ package com.example.nhahang
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import android.widget.ListView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -35,8 +36,6 @@ class MainActivity : AppCompatActivity() {
 
         //goi ham setevent bottom nav
         setEventNav()
-
-//        doDuLieuVaoListViewDemo();
     }
     //do du lieu banner vao view page 2
     fun doDuLieuVaoViewPage(){
@@ -64,15 +63,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapterRecycler
     }
     //do du lieu listview adapter vao list view
-//    fun doDuLieuVaoListViewDemo(){
-//        var DemolistView : ListView = findViewById(R.id.lvDemo)
-//        val items  : MutableList<MonAn> = mutableListOf<MonAn>()
-//        items.add(MonAn("gÀ",100000,R.drawable.img_lv_banner4))
-//        items.add(MonAn("Heo",100000,R.drawable.img_lv_banner2))
-//        items.add(MonAn("Vịt",100000,R.drawable.img_lv_banner4))
 //        //khai bao adapter
-//        val adapter = DemoListViewMonAn(this,items)
-//        DemolistView.adapter = adapter
 //    }
 
     fun doDuLieuVaoListView(){
@@ -100,8 +91,12 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_nav_chart->{
-                    startActivity(Intent(this,ThongKeActivity::class.java))
-                    overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                    if(taikhoan.quyen == "admin") {
+                        startActivity(Intent(this,ThongKeActivity::class.java))
+                        overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                    } else {
+                        Toast.makeText(this, "Bạn không có quyền!", Toast.LENGTH_SHORT).show()
+                    }
                     true
                 }
                 R.id.bottom_nav_location->{
@@ -110,8 +105,12 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_nav_work->{
+                    if(taikhoan.quyen == "admin") {
                     startActivity(Intent(this,QuanLiActivity::class.java))
                     overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                    } else {
+                        Toast.makeText(this, "Bạn không có quyền!", Toast.LENGTH_SHORT).show()
+                    }
                     true
                 }
                 R.id.bottom_nav_extension->{

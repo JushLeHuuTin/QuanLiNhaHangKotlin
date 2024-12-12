@@ -3,6 +3,7 @@ package com.example.nhahang
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -25,6 +26,7 @@ class ThietLapTaiKhoanActivity : AppCompatActivity() {
         btnQuenPass = findViewById(R.id.btnQuenMatKhau)
         btnLogOut.setOnClickListener {
             startActivity(Intent(this,LoginActivity::class.java))
+            Toast.makeText(this, "Đã đăng xuất!", Toast.LENGTH_SHORT).show()
         }
         btnChangePass.setOnClickListener {
             startActivity(Intent(this,DoiMatKhauActiviy::class.java))
