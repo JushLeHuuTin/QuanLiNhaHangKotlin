@@ -94,8 +94,6 @@ class MainActivity : AppCompatActivity() {
                     if(taikhoan.quyen == "admin") {
                         startActivity(Intent(this,ThongKeActivity::class.java))
                         overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
-                    } else {
-                        Toast.makeText(this, "Bạn không có quyền!", Toast.LENGTH_SHORT).show()
                     }
                     true
                 }
@@ -108,10 +106,8 @@ class MainActivity : AppCompatActivity() {
                     if(taikhoan.quyen == "admin") {
                     startActivity(Intent(this,QuanLiActivity::class.java))
                     overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
-                    } else {
-                        Toast.makeText(this, "Bạn không có quyền!", Toast.LENGTH_SHORT).show()
                     }
-                    true
+                    false
                 }
                 R.id.bottom_nav_extension->{
                     startActivity(Intent(this,TienIchActivity::class.java))

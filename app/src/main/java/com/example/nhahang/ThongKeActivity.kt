@@ -48,17 +48,20 @@ class ThongKeActivity : AppCompatActivity() {
     }
     //set event bottom nav
     fun setEventNav(){
-        bottomNav.selectedItemId = R.id.bottom_nav_chart
-        bottomNav.setOnNavigationItemSelectedListener { i->
+        bottomNav = findViewById(R.id.bottom_nav_view)
+        bottomNav.selectedItemId = R.id.bottom_nav_home
+        bottomNav.setOnNavigationItemSelectedListener { i ->
             when(i.itemId){
-                R.id.bottom_nav_home ->{
+                R.id.bottom_nav_home->{
                     startActivity(Intent(this,MainActivity::class.java))
-                    overridePendingTransition(R.anim.animation_activity,R.anim.animation_activity)
+                    overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
                     true
                 }
-                R.id.bottom_nav_extension ->{
-                    startActivity(Intent(this,TienIchActivity::class.java))
-                    overridePendingTransition(R.anim.animation_activity,R.anim.animation_activity)
+                R.id.bottom_nav_chart->{
+                    if(taikhoan.quyen == "admin") {
+                        startActivity(Intent(this,ThongKeActivity::class.java))
+                        overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                    }
                     true
                 }
                 R.id.bottom_nav_location->{
@@ -67,11 +70,17 @@ class ThongKeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_nav_work->{
-                    startActivity(Intent(this,QuanLiActivity::class.java))
+                    if(taikhoan.quyen == "admin") {
+                        startActivity(Intent(this,QuanLiActivity::class.java))
+                        overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                    }
+                    false
+                }
+                R.id.bottom_nav_extension->{
+                    startActivity(Intent(this,TienIchActivity::class.java))
                     overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
                     true
-                }
-                else ->false
+                }else -> false
             }
         }
     }

@@ -69,13 +69,17 @@ class TienIchActivity : AppCompatActivity() {
                     true
                 }
                 R.id.bottom_nav_chart->{
-                    startActivity(Intent(this,ThongKeActivity::class.java))
-                    overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                    if(taikhoan.quyen == "admin") {
+                        startActivity(Intent(this,ThongKeActivity::class.java))
+                        overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                    }
                     true
                 }
                 R.id.bottom_nav_work->{
-                    startActivity(Intent(this,QuanLiActivity::class.java))
-                    overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                    if(taikhoan.quyen == "admin") {
+                        startActivity(Intent(this,QuanLiActivity::class.java))
+                        overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                    }
                     true
                 }
               else -> false
