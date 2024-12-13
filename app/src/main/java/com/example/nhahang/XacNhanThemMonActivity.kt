@@ -17,6 +17,8 @@ class XacNhanThemMonActivity : AppCompatActivity() {
     private lateinit var tvTableName : TextView
     private lateinit var lv_ThemMon : ListView
     private lateinit var tvTongTien : TextView
+    private lateinit var ListBillInfo : MutableList<BillInfo>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -35,8 +37,10 @@ class XacNhanThemMonActivity : AppCompatActivity() {
         tvTableName.text = intent.getStringExtra("TableName")
         btnSubmit.setOnClickListener {
             startActivity(Intent(this,KhuVucActivity::class.java))
+
         }
-        var ListBillInfo :MutableList<BillInfo> = mutableListOf()
+//        ListBillInfo.clear()
+        ListBillInfo  = mutableListOf()
 
         ListBillInfo.add(BillInfo(1,2,"Món mì ý",R.drawable.img,3,140000.0))
         ListBillInfo.add(BillInfo(1,2,"Món mì Sốt thái",R.drawable.img_1,1,140000.0))

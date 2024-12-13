@@ -1,6 +1,5 @@
 package com.example.nhahang
-
-data class BillInfo(
+data class BillInfo (
     val idBillInfo: Int,
     val idBill: Int,
     val foodName: String,

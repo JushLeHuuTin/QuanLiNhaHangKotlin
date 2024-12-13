@@ -1,12 +1,16 @@
 package com.example.nhahang
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.database.Cursor
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
 import android.widget.ListView
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
@@ -15,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.w3c.dom.Node
 
 class MainActivity : AppCompatActivity() {
     //khai bao thuoc tinh
@@ -24,24 +29,62 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerTopProducts : RecyclerView
     private lateinit var bottomNav : BottomNavigationView
     private lateinit var edtTimKiem : EditText
+    private lateinit var myDataBase : SQLiteDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
         setControl()
+        createDataBase()
         doDuLieuVaoViewPage()
 
-        //goi ham load list recycler view
+        //goi ham load list recycler view(danh mục sản phẩm)
         doDuLieuVaoRecyler()
 
-        //goi ham load list view
+        //goi ham load (top sản phẩm)
         doDuLieuVaoRecylerView()
 
 
 
         //goi ham setevent bottom nav
         setEventNav()
+    }
+    //create database
+    fun createDataBase(){
+        //tạo database
+        try {
+            myDataBase = openOrCreateDatabase("qlnhahang.db", MODE_PRIVATE, null)
+            Log.d("SQL", "Cơ sở dữ liệu đã mở thành công.")
+        } catch (e: Exception) {
+            Log.e("Error", "Không thể mở cơ sở dữ liệu: ${e.message}")
+        }
+        try {
+            myDataBase.execSQL("DROP TABLE IF EXISTS TBMonAn")
+            val sql = "CREATE table TBMonAn (MaMon TEXT primary key, TenMon Text,MoTa Text,Gia REAL,anh INTEGER)"
+            myDataBase.execSQL(sql)
+        }catch( ex: Exception){
+            Log.e("Error SQL",ex.message.toString())
+        }
+        //insert data into TBMonAn
+        try{
+            val sql1 = " INSERT INTO TBMonAn (MaMon, TenMon, MoTa, Gia,anh) " +
+                    "VALUES ('M001', 'Tôm sốt thái', 'Tôm tươi được chế biến với sốt Thái cay cay, chua ngọt đặc trưng, đậm đà hương vị Đông Nam Á.', 129.000,${R.drawable.img_top_product1}) "
+            val sql2 = " INSERT INTO TBMonAn (MaMon, TenMon, MoTa, Gia,anh) " +
+                    "VALUES ('M002', 'Chân gà xả tắc', 'Chân gà dai giòn, ngâm cùng sả thơm, tắc chua và gia vị cay nồng, tạo nên món ăn vặt hấp dẫn', 119.000,${R.drawable.img_top_product2}) "
+            val sql3 = " INSERT INTO TBMonAn (MaMon, TenMon, MoTa, Gia,anh) " +
+                    "VALUES ('M003', 'Tôm sốt thái', 'Tôm tươi được tẩm sốt Thái đậm vị, kết hợp cùng các loại rau thơm và gia vị chua cay hoàn hảo', 129.000,${R.drawable.img_top_product3}) "
+            val sql4 = " INSERT INTO TBMonAn (MaMon, TenMon, MoTa, Gia,anh) " +
+                    "VALUES ('M004', 'Hàu nướng phô mai', 'Hàu tươi nướng béo ngậy, phủ lớp phô mai tan chảy thơm lừng, là món ăn ngon khó cưỡng', 69.000,${R.drawable.img_top_product4}) "
+            myDataBase.execSQL(sql1)
+            myDataBase.execSQL(sql2)
+            myDataBase.execSQL(sql3)
+            myDataBase.execSQL(sql4)
+
+        }catch( ex: Exception){
+            Log.e("Error SQL",ex.message.toString())
+        }
     }
     //set control
     fun setControl(){
@@ -72,18 +115,28 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapterRecycler
     }
-    //do du lieu listview adapter vao list view
-//        //khai bao adapter
-//    }
+
 
     fun doDuLieuVaoRecylerView(){
         recyclerTopProducts = findViewById(R.id.recyclerTopProducts)
         val items  : MutableList<RecyclerTopProductsItem> = mutableListOf()
-        items.add(RecyclerTopProductsItem("Tôm sốt thái",129.000,R.drawable.img_top_product1))
-        items.add(RecyclerTopProductsItem("Chân gà xả tắc",119.000,R.drawable.img_top_product2))
-        items.add(RecyclerTopProductsItem("Tôm sốt thái",129.000,R.drawable.img_top_product3))
-        items.add(RecyclerTopProductsItem("Hàu nướng phô mai",69.000,R.drawable.img_top_product4))
-        //khai bao adapter
+        var cursor : Cursor = myDataBase.query("TBMonAn",null,null,null,null,null,null,null)
+        if ( cursor.moveToFirst()) {
+            do {
+                val name = cursor.getString(1)
+                val price = cursor.getDouble(3)
+                val imageResId = cursor.getInt(4)
+
+                // Thêm item vào danh sách
+                items.add(RecyclerTopProductsItem(name, price, imageResId))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+//        items.add(RecyclerTopProductsItem("Tôm sốt thái",129.000,R.drawable.img_top_product1))
+//        items.add(RecyclerTopProductsItem("Chân gà xả tắc",119.000,R.drawable.img_top_product2))
+//        items.add(RecyclerTopProductsItem("Tôm sốt thái",129.000,R.drawable.img_top_product3))
+//        items.add(RecyclerTopProductsItem("Hàu nướng phô mai",69.000,R.drawable.img_top_product4))
+//        //khai bao adapter
         val adapter = RecyclerTopProductsAdapter(this,items)
 
         recyclerTopProducts.layoutManager = GridLayoutManager(this,2)
