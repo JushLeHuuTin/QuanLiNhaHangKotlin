@@ -11,14 +11,24 @@ import android.widget.ListView
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.w3c.dom.Node
 
 class MainActivity : AppCompatActivity() {
@@ -28,67 +38,61 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView : RecyclerView
     private lateinit var recyclerTopProducts : RecyclerView
     private lateinit var bottomNav : BottomNavigationView
-    private lateinit var edtTimKiem : EditText
-    private lateinit var myDataBase : SQLiteDatabase
+    private lateinit var edtTimKiem : SearchView
+    private lateinit var adapter : RecyclerTopProductsAdapter
+    private lateinit var db : AppDatabase
+    private lateinit var monAnDAO : MonAnDAO
+    private lateinit var items :List<MonAn>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-
         setControl()
         createDataBase()
         doDuLieuVaoViewPage()
-
         //goi ham load list recycler view(danh mục sản phẩm)
         doDuLieuVaoRecyler()
-
         //goi ham load (top sản phẩm)
         doDuLieuVaoRecylerView()
-
-
-
         //goi ham setevent bottom nav
         setEventNav()
+        event()
     }
     //create database
     fun createDataBase(){
-        //tạo database
-        try {
-            myDataBase = openOrCreateDatabase("qlnhahang.db", MODE_PRIVATE, null)
-            Log.d("SQL", "Cơ sở dữ liệu đã mở thành công.")
-        } catch (e: Exception) {
-            Log.e("Error", "Không thể mở cơ sở dữ liệu: ${e.message}")
-        }
-        try {
-            myDataBase.execSQL("DROP TABLE IF EXISTS TBMonAn")
-            val sql = "CREATE table TBMonAn (MaMon TEXT primary key, TenMon Text,MoTa Text,Gia REAL,anh INTEGER)"
-            myDataBase.execSQL(sql)
-        }catch( ex: Exception){
-            Log.e("Error SQL",ex.message.toString())
-        }
-        //insert data into TBMonAn
-        try{
-            val sql1 = " INSERT INTO TBMonAn (MaMon, TenMon, MoTa, Gia,anh) " +
-                    "VALUES ('M001', 'Tôm sốt thái', 'Tôm tươi được chế biến với sốt Thái cay cay, chua ngọt đặc trưng, đậm đà hương vị Đông Nam Á.', 129.000,${R.drawable.img_top_product1}) "
-            val sql2 = " INSERT INTO TBMonAn (MaMon, TenMon, MoTa, Gia,anh) " +
-                    "VALUES ('M002', 'Chân gà xả tắc', 'Chân gà dai giòn, ngâm cùng sả thơm, tắc chua và gia vị cay nồng, tạo nên món ăn vặt hấp dẫn', 119.000,${R.drawable.img_top_product2}) "
-            val sql3 = " INSERT INTO TBMonAn (MaMon, TenMon, MoTa, Gia,anh) " +
-                    "VALUES ('M003', 'Tôm sốt thái', 'Tôm tươi được tẩm sốt Thái đậm vị, kết hợp cùng các loại rau thơm và gia vị chua cay hoàn hảo', 129.000,${R.drawable.img_top_product3}) "
-            val sql4 = " INSERT INTO TBMonAn (MaMon, TenMon, MoTa, Gia,anh) " +
-                    "VALUES ('M004', 'Hàu nướng phô mai', 'Hàu tươi nướng béo ngậy, phủ lớp phô mai tan chảy thơm lừng, là món ăn ngon khó cưỡng', 69.000,${R.drawable.img_top_product4}) "
-            myDataBase.execSQL(sql1)
-            myDataBase.execSQL(sql2)
-            myDataBase.execSQL(sql3)
-            myDataBase.execSQL(sql4)
+        db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,"nhahang_db"
+        ).build()
+        monAnDAO = db.monAnDAO()
+        //chen du lieu vao danh sach mon an
+        GlobalScope.launch(Dispatchers.IO) {
+            val monAn1 = MonAn(tenMon = "Tôm sốt thái",moTa = "Tôm tươi được chế biến với sốt Thái cay cay, chua ngọt đặc trưng, đậm đà hương vị Đông Nam Á.",giaMon = 129000,anh = R.drawable.img_top_product1,danhMuc = "Món ăn")
+            val monAn2 = MonAn(tenMon = "Chân gà xả tắc",moTa = "Chân gà dai giòn, ngâm cùng sả thơm, tắc chua và gia vị cay nồng, tạo nên món ăn vặt hấp dẫn",giaMon = 119000,anh = R.drawable.img_top_product2,danhMuc = "Món ăn")
+            val monAn3 = MonAn(tenMon = "Tôm sốt thái",moTa = "Tôm tươi được tẩm sốt Thái đậm vị, kết hợp cùng các loại rau thơm và gia vị chua cay hoàn hảo",giaMon = 129000,anh = R.drawable.img_top_product3,danhMuc = "Món ăn")
+            val monAn4 = MonAn(tenMon = "Hàu nướng phô mai",moTa = "Hàu tươi nướng béo ngậy, phủ lớp phô mai tan chảy thơm lừng, là món ăn ngon khó cưỡng",giaMon = 69000,anh = R.drawable.img_top_product4,danhMuc = "Món ăn")
+            val monAn5 = MonAn(tenMon = "Pessi",moTa = "",giaMon = 20000,anh = R.drawable.img_4,danhMuc = "Nước")
+            val monAn6 = MonAn(tenMon = "Coca cola",moTa = "",giaMon = 20000,anh = R.drawable.img_5,danhMuc = "Nước")
+            val monAn7 = MonAn(tenMon = "Beer",moTa = "",giaMon = 25000,anh = R.drawable.img_6,danhMuc = "Nước")
+            val monAn8 = MonAn(tenMon = "Beer",moTa = "",giaMon = 20000,anh = R.drawable.img_7,danhMuc = "Nước")
 
-        }catch( ex: Exception){
-            Log.e("Error SQL",ex.message.toString())
+//            monAnDAO.InsertMonAn(monAn1)
+//            monAnDAO.InsertMonAn(monAn2)
+//            monAnDAO.InsertMonAn(monAn3)
+//            monAnDAO.InsertMonAn(monAn4)
+//            monAnDAO.InsertMonAn(monAn5)
+//            monAnDAO.InsertMonAn(monAn6)
+//            monAnDAO.InsertMonAn(monAn7)
+//            monAnDAO.InsertMonAn(monAn8)
         }
     }
+
+
+
     //set control
     fun setControl(){
-        edtTimKiem = findViewById(R.id.edtTimKiem)
+        edtTimKiem = findViewById(R.id.searchView)
     }
     //do du lieu banner vao view page 2
     fun doDuLieuVaoViewPage(){
@@ -119,40 +123,45 @@ class MainActivity : AppCompatActivity() {
 
     fun doDuLieuVaoRecylerView(){
         recyclerTopProducts = findViewById(R.id.recyclerTopProducts)
-        val items  : MutableList<RecyclerTopProductsItem> = mutableListOf()
-        var cursor : Cursor = myDataBase.query("TBMonAn",null,null,null,null,null,null,null)
-        if ( cursor.moveToFirst()) {
-            do {
-                val name = cursor.getString(1)
-                val price = cursor.getDouble(3)
-                val imageResId = cursor.getInt(4)
-
-                // Thêm item vào danh sách
-                items.add(RecyclerTopProductsItem(name, price, imageResId))
-            } while (cursor.moveToNext())
-        }
-        cursor.close()
-//        items.add(RecyclerTopProductsItem("Tôm sốt thái",129.000,R.drawable.img_top_product1))
-//        items.add(RecyclerTopProductsItem("Chân gà xả tắc",119.000,R.drawable.img_top_product2))
-//        items.add(RecyclerTopProductsItem("Tôm sốt thái",129.000,R.drawable.img_top_product3))
-//        items.add(RecyclerTopProductsItem("Hàu nướng phô mai",69.000,R.drawable.img_top_product4))
-//        //khai bao adapter
-        val adapter = RecyclerTopProductsAdapter(this,items)
-
+         items = listOf()
+         adapter = RecyclerTopProductsAdapter(this,items)
+        loadTopSanPham()
         recyclerTopProducts.layoutManager = GridLayoutManager(this,2)
         recyclerTopProducts.adapter = adapter
-        edtTimKiem.addTextChangedListener {
-            val searchText = it?.toString() ?: ""
-            // Lọc danh sách theo nội dung tìm kiếm
-            val filteredList = items.filter { item ->
-                item.name.contains(searchText, ignoreCase = true)
-            }
-             //Cập nhật danh sách trong adapter
-            adapter.updateData(filteredList)
-        }
+        edtTimKiem.setOnQueryTextListener( object :SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
 
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val newList = items.filter { item->
+                    item.tenMon.contains(newText.toString(),ignoreCase = true)
+                }
+                adapter.updateData(newList)
+                return true
+            }
+
+        })
+        //        {
+//            val searchText = it?.toString() ?: ""
+//            // Lọc danh sách theo nội dung tìm kiếm
+//            val filteredList = items.filter { item ->
+//                item.tenMon.contains(searchText, ignoreCase = true)
+//            }
+//             //Cập nhật danh sách trong adapter
+//            adapter.updateData(filteredList)
+//        }
     }
 
+    fun loadTopSanPham(){
+        GlobalScope.launch(Dispatchers.IO) {
+            items =  monAnDAO.getAllMonAns()
+            withContext(Dispatchers.Main){
+                adapter.updateData(items)
+            }
+        }
+    }
     //thuc hien event
     fun setEventNav(){
         bottomNav = findViewById(R.id.bottom_nav_view)
@@ -168,8 +177,10 @@ class MainActivity : AppCompatActivity() {
                     if(taikhoan.quyen == "admin") {
                         startActivity(Intent(this,ThongKeActivity::class.java))
                         overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                        true
+                    }else{
+                        false
                     }
-                    true
                 }
                 R.id.bottom_nav_location->{
                     startActivity(Intent(this,KhuVucActivity::class.java))
@@ -180,8 +191,10 @@ class MainActivity : AppCompatActivity() {
                     if(taikhoan.quyen == "admin") {
                     startActivity(Intent(this,QuanLiActivity::class.java))
                     overridePendingTransition(R.anim.animation_activity, R.anim.animation_activity)
+                        true
+                    }else{
+                        false
                     }
-                    false
                 }
                 R.id.bottom_nav_extension->{
                     startActivity(Intent(this,TienIchActivity::class.java))
@@ -192,5 +205,11 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    //set event
+    fun event(){
+//        setSupportActionBar(tbMain)
+//        supportActionBar?.title = "Home"
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+    }
 }

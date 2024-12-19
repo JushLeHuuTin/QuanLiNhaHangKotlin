@@ -24,8 +24,6 @@ class QuanLiMonActivity : AppCompatActivity() {
         btnMon = findViewById(R.id.btnMon)
         btnNuoc = findViewById(R.id.btnNuoc)
         btnThemMon = findViewById(R.id.btnThemMon)
-        btnMon1 = findViewById(R.id.btnMon1)
-        btnMon2 = findViewById(R.id.btnMon2)
     }
     //set event
     fun setEvent(){

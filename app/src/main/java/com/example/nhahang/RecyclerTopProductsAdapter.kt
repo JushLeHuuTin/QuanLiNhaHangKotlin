@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.text.NumberFormat
+import java.util.Locale
 
-class RecyclerTopProductsAdapter(val context: Context, var items : List<RecyclerTopProductsItem>) : RecyclerView.Adapter<RecyclerTopProductsAdapter.ItemVewHolder>(){
+class RecyclerTopProductsAdapter(val context: Context, var items : List<MonAn>) : RecyclerView.Adapter<RecyclerTopProductsAdapter.ItemVewHolder>(){
     class ItemVewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val imgProduct : ImageView = itemView.findViewById(R.id.imgProduct)
         val tvProductName : TextView = itemView.findViewById(R.id.tvProductName)
@@ -26,15 +28,16 @@ class RecyclerTopProductsAdapter(val context: Context, var items : List<Recycler
 
     override fun onBindViewHolder(holder: ItemVewHolder, position: Int) {
         val currentItem = items[position]
-        holder.imgProduct.setImageResource(currentItem.imgProduct)
-        holder.tvProductPrice.text = currentItem.price?.toString() + "00đ"
-        holder.tvProductName.text = currentItem.name
+        holder.imgProduct.setImageResource(currentItem.anh)
+        var format = NumberFormat.getCurrencyInstance(Locale("vi","VN"))
+        holder.tvProductPrice.text = format.format(currentItem.giaMon).toString()
+        holder.tvProductName.text = currentItem.tenMon
     }
 
     override fun getItemCount(): Int {
         return items.size
     }
-    fun updateData(newItems: List<RecyclerTopProductsItem>) {
+    fun updateData(newItems: List<MonAn>) {
         this.items = newItems
         notifyDataSetChanged()
     }

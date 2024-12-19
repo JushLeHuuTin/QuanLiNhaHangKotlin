@@ -17,7 +17,7 @@ import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import java.text.NumberFormat
 import java.util.Locale
 
-class ListViewMonAdapter(val context : Context, val items : List<MonAn>) : BaseAdapter() {
+class ListViewMonAdapter(val context : Context, var items : List<MonAn>) : BaseAdapter() {
     override fun getCount(): Int {
         return items.size
     }
@@ -38,29 +38,32 @@ class ListViewMonAdapter(val context : Context, val items : List<MonAn>) : BaseA
         val currentItem = items[p0]
         img.setBackgroundResource(currentItem.anh)
         view.setOnClickListener {
-            when(currentItem.anh){
-                R.drawable.img ->{
+            when(currentItem.maMon){
+                0 ->{
                     setInfo(currentItem.tenMon,currentItem.giaMon.toString(),currentItem.anh,currentItem.moTa)
                 }
-                R.drawable.img_3 ->{
+                1 ->{
                     setInfo(currentItem.tenMon,currentItem.giaMon.toString(),currentItem.anh,currentItem.moTa)
                }
-                R.drawable.img_2 ->{
+                2 ->{
                     setInfo(currentItem.tenMon,currentItem.giaMon.toString(),currentItem.anh,currentItem.moTa)
                  }
-                R.drawable.img_1 ->{
+                3 ->{
                     setInfo(currentItem.tenMon,currentItem.giaMon.toString(),currentItem.anh,currentItem.moTa)
                }
-                R.drawable.img_4 ->{
+                4 ->{
                     setInfo(currentItem.tenMon,currentItem.giaMon.toString(),currentItem.anh,currentItem.moTa)
                 }
-                R.drawable.img_5 ->{
+                5 ->{
                     setInfo(currentItem.tenMon,currentItem.giaMon.toString(),currentItem.anh,currentItem.moTa)
                 }
-                R.drawable.img_6 ->{
+                6 ->{
                     setInfo(currentItem.tenMon,currentItem.giaMon.toString(),currentItem.anh,currentItem.moTa)
                 }
-                R.drawable.img_7 ->{
+                7 ->{
+                    setInfo(currentItem.tenMon,currentItem.giaMon.toString(),currentItem.anh,currentItem.moTa)
+                }
+                8 ->{
                     setInfo(currentItem.tenMon,currentItem.giaMon.toString(),currentItem.anh,currentItem.moTa)
                 }
             }
@@ -88,4 +91,8 @@ class ListViewMonAdapter(val context : Context, val items : List<MonAn>) : BaseA
          tvDESMon.text = motaMon
 
      }
+    fun updateData(newList : List<MonAn>){
+        this.items = newList
+        notifyDataSetChanged()
+    }
 }
